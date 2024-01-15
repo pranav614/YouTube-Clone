@@ -1,10 +1,10 @@
 import { createBrowserRouter } from 'react-router-dom';
 import { RouterProvider } from 'react-router-dom';
 import Body from './Body';
-import Header from './Header/Header';
 import MainContainer from './MainContainer';
 import VideoPlayer from './VideoPlayer';
 import './App.css';
+import MainHeader from './Header/MainHeader';
 
 function App() {
   const wholeRouter =createBrowserRouter([
@@ -17,7 +17,7 @@ function App() {
           element:<MainContainer/>
         },
         {
-          path:'watch',
+          path:'/watch',
           element:<VideoPlayer/>
         }
       ]
@@ -25,9 +25,9 @@ function App() {
   ]) 
   return (
     <div >
-      <Header/>
+     
+      <MainHeader/>
       <RouterProvider router={wholeRouter}/>
-
     </div>
   );
 }

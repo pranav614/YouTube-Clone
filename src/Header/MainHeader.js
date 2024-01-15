@@ -1,19 +1,34 @@
 import React from "react";
-// import { Link } from "react-router-dom";
-const Header = () => {
+import { useDispatch } from "react-redux";
+import { myToogle } from "../Utils/SideBarBoolean";
+
+const MainHeader = () => {
+
+
+  const dispatch=useDispatch();
+
+  const toogleHandle=()=>{
+    dispatch(myToogle())
+  }
+
   return (
     <div>
-      <div className=" flex px-6 py-3 bg-black">
+      <div className=" flex px-3 py-2 bg-black ">
         {/* menu and sidebar */}
         <div className="flex gap-3 items-center">
-          <div>
-            <p className="text-white">Menu</p>
+          <div className="hover:bg-[#303030] hover:rounded-full">
+          <button className={`hamburger hamburger--collapse`} type="button" onClick={toogleHandle}>
+   <span className="hamburger-box">
+     <span className="hamburger-inner"></span>
+   </span>
+ </button>
           </div>
-            {/* <Link to={"/"}> */}
+          {/* youtube Title Svg */}
+
           <div>
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="external-icon"
+              className="external-icon"
               viewBox="0 0 90 20"
               focusable="false"
               style={{
@@ -53,15 +68,13 @@ const Header = () => {
                 </g>
               </svg>
             </svg>
-            
           </div>
-            {/* </Link> */}
 
         </div>
         <div className="flex justify-between ml-60 w-full items-center text-white ">
           <div className="flex items-center w-full ">
             <input type="text" placeholder="Search" className="searchInput bg-black px-5 py-1.5 w-[60%]" />
-            <button className="bg-[#222222]  p-[6px] border rounded-tr-lg rounded-br-lg searchBtn">
+            <button className="bg-[#222222]  py-[6px] px-[16px] border rounded-tr-2xl rounded-br-2xl searchBtn">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 height="24"
@@ -82,4 +95,4 @@ const Header = () => {
     </div>
   );
 };
-export default Header;
+export default MainHeader;
